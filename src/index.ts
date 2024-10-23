@@ -79,9 +79,30 @@
 // type Metric = "cm" | "inch";
 
 // Nullable types
-function greet(name: string | null | undefined) {
-  if (name) console.log(name.toUpperCase);
-  else console.log("hola!");
+// function greet(name: string | null | undefined) {
+//   if (name) console.log(name.toUpperCase);
+//   else console.log("hola!");
+// }
+
+// greet(undefined);
+
+// optional chaining -- <?> optional property access operator
+type Customer = {
+  birthday?: Date;
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+  return id === 0 ? null : { birthday: new Date() };
 }
 
-greet(undefined);
+let customer = getCustomer(1);
+
+console.log(customer?.birthday?.getFullYear());
+
+// Optional element access operator
+// customers?.[0]
+
+// optional call operator
+let log: any = null;
+
+log?.("a");
