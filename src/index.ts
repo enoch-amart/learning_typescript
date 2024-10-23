@@ -117,9 +117,18 @@
 
 // Type assertation - telling typscript that you know more about the type of the element that it.
 
-let phone = document.getElementById("phone") as HTMLInputElement;
-phone.value;
-// or
-let phones = <HTMLInputElement>document.getElementById("phone");
+// let phone = document.getElementById("phone") as HTMLInputElement;
+// phone.value;
+// // or
+// let phones = <HTMLInputElement>document.getElementById("phone");
 
-phones.value;
+// phones.value;
+
+// The unkown type - better than any cux the controller forces us to do some type check.
+//  the equal to sign "===" is use for primitive type, objects use "instaceof"
+function render(document: unknown) {
+  // Narrowing
+  if (document === "string") {
+    document.toUpperCase;
+  }
+}
