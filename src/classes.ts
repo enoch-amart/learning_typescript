@@ -49,8 +49,23 @@ class Account {
     private _balance: number
   ) {}
 
+  // getters
+  get balance(): number {
+    return this._balance;
+  }
+
+  // setters
+  set setOwner(name: string) {
+    this.owner = name;
+  }
+
   deposit(amount: number): void {
     if (amount <= 0) throw new Error("Invalid amount");
     this._balance += amount;
   }
 }
+
+let account = new Account(1, "Enoch", 0);
+console.log(account.balance);
+account.setOwner = "Noky boy";
+console.log(account);
