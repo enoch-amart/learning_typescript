@@ -144,5 +144,24 @@ class Teacher extends Person {
   }
 }
 
-let teacher = new Teacher("Enoch", "Amarteifio");
-console.log(teacher.fullName);
+class Principal extends Person {
+  override get fullName() {
+    return "Principal " + super.fullName;
+  }
+}
+
+// let teacher = new Teacher("Enoch", "Amarteifio");
+// console.log(teacher.fullName);
+
+// Polymorphism -  poly - many; morph- forms; many forms. an object can take many different forms
+// Open Closed Principle - classes should be open for extension and closed for modification
+
+function printNames(people: Person[]) {
+  for (let person of people) console.log(person.fullName);
+}
+
+printNames([
+  new Student(1, "Abigail", "Yemoley"),
+  new Teacher("Enoch", "Amarteifio"),
+  new Principal("Nok", "Amart"),
+]);
