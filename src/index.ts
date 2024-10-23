@@ -109,8 +109,17 @@
 
 // The Nullish Coalescing Operator
 
-let speed: number | null = null;
-let ride = {
-  // nullish coalescing operator
-  speed: speed ?? 30,
-};
+// let speed: number | null = null;
+// let ride = {
+//   // nullish coalescing operator
+//   speed: speed ?? 30,
+// };
+
+// Type assertation - telling typscript that you know more about the type of the element that it.
+
+let phone = document.getElementById("phone") as HTMLInputElement;
+phone.value;
+// or
+let phones = <HTMLInputElement>document.getElementById("phone");
+
+phones.value;
