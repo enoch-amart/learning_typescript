@@ -83,28 +83,56 @@
 
 // static properties. it is a property that belongs to a class and not an object
 
-class Ride {
-  private static _activeRides: number = 0;
-  start() {
-    Ride._activeRides++;
-  }
-  stop() {
-    Ride._activeRides++;
+// class Ride {
+//   private static _activeRides: number = 0;
+//   start() {
+//     Ride._activeRides++;
+//   }
+//   stop() {
+//     Ride._activeRides++;
+//   }
+
+//   static get activeRides() {
+//     return Ride._activeRides;
+//   }
+// }
+
+// let ride1 = new Ride();
+// ride1.start();
+
+// let ride2 = new Ride();
+// ride2.start();
+
+// let ride3 = new Ride();
+// ride3.start();
+// ride3.start();
+
+// console.log(Ride.activeRides);
+
+// Inheritance - a mechanism that allows us to reuse our codes
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
+
+  get fullName() {
+    return this.firstName + " " + this.lastName;
   }
 
-  static get activeRides() {
-    return Ride._activeRides;
+  walk() {
+    console.log("Walking");
   }
 }
 
-let ride1 = new Ride();
-ride1.start();
+class Student extends Person {
+  constructor(public studentId: number, firstName: string, lastName: string) {
+    super(firstName, lastName);
+  }
 
-let ride2 = new Ride();
-ride2.start();
+  test() {
+    console.log("Taking test, wellll");
+  }
+}
 
-let ride3 = new Ride();
-ride3.start();
-ride3.start();
-
-console.log(Ride.activeRides);
+let student = new Student(1, "Enoch", "Amart");
+console.log(student.fullName);
+student.walk();
+student.test();
