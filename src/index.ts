@@ -30,11 +30,15 @@
 // calculateTax(10_000);
 
 // Objects
-let employee: {
+
+//  Type Alias
+type Employee = {
   readonly id: number;
   name: string;
   retire: (date: Date) => void;
-} = {
+};
+
+let employee: Employee = {
   id: 1,
   name: "Enoch",
   retire: (date: Date) => {
