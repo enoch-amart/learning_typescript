@@ -47,11 +47,27 @@
 // };
 
 // Union type - giving a parameter more than one type. use vertical bar to create union type |
-function kgToLbs(weight: number | string): number {
-  // narrowing
-  if (typeof weight === "number") return weight * 2.2;
-  else return parseInt(weight) * 2.2;
-}
+// function kgToLbs(weight: number | string): number {
+//   // narrowing
+//   if (typeof weight === "number") return weight * 2.2;
+//   else return parseInt(weight) * 2.2;
+// }
 
-kgToLbs(10);
-kgToLbs("10kg");
+// kgToLbs(10);
+// kgToLbs("10kg");
+
+// Intersection
+type Draggable = {
+  drag: () => void;
+};
+
+type Resizable = {
+  resize: () => void;
+};
+
+type UIWidget = Draggable & Resizable;
+
+let textBox: UIWidget = {
+  drag: () => {},
+  resize: () => {},
+};
