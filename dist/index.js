@@ -1,5 +1,4 @@
 "use strict";
-let user = [1, "Mosh"];
-user.push(1);
-console.log(user);
+let mySize = 2;
+console.log(mySize);
 //# sourceMappingURL=index.js.map
