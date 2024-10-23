@@ -39,33 +39,44 @@
 
 // console.log(account.getBalance());
 
-// Parameter properties
-class Account {
-  nickname?: string;
+// // Parameter properties
+// class Account {
+//   nickname?: string;
 
-  constructor(
-    public readonly id: number,
-    public owner: string,
-    private _balance: number
-  ) {}
+//   constructor(
+//     public readonly id: number,
+//     public owner: string,
+//     private _balance: number
+//   ) {}
 
-  // getters
-  get balance(): number {
-    return this._balance;
-  }
+//   // getters
+//   get balance(): number {
+//     return this._balance;
+//   }
 
-  // setters
-  set setOwner(name: string) {
-    this.owner = name;
-  }
+//   // setters
+//   set setOwner(name: string) {
+//     this.owner = name;
+//   }
 
-  deposit(amount: number): void {
-    if (amount <= 0) throw new Error("Invalid amount");
-    this._balance += amount;
-  }
+//   deposit(amount: number): void {
+//     if (amount <= 0) throw new Error("Invalid amount");
+//     this._balance += amount;
+//   }
+// }
+
+// let account = new Account(1, "Enoch", 0);
+// console.log(account.balance);
+// account.setOwner = "Noky boy";
+// console.log(account);
+
+// Index Signatures
+class SeatAssignment {
+  [seatNumber: string]: string;
 }
 
-let account = new Account(1, "Enoch", 0);
-console.log(account.balance);
-account.setOwner = "Noky boy";
-console.log(account);
+let seats = new SeatAssignment();
+seats.A1 = "Enoch";
+seats.A2 = "boyy";
+
+console.log(seats);
