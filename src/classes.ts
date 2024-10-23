@@ -71,12 +71,40 @@
 // console.log(account);
 
 // Index Signatures
-class SeatAssignment {
-  [seatNumber: string]: string;
+// class SeatAssignment {
+//   [seatNumber: string]: string;
+// }
+
+// let seats = new SeatAssignment();
+// seats.A1 = "Enoch";
+// seats.A2 = "boyy";
+
+// console.log(seats);
+
+// static properties. it is a property that belongs to a class and not an object
+
+class Ride {
+  private static _activeRides: number = 0;
+  start() {
+    Ride._activeRides++;
+  }
+  stop() {
+    Ride._activeRides++;
+  }
+
+  static get activeRides() {
+    return Ride._activeRides;
+  }
 }
 
-let seats = new SeatAssignment();
-seats.A1 = "Enoch";
-seats.A2 = "boyy";
+let ride1 = new Ride();
+ride1.start();
 
-console.log(seats);
+let ride2 = new Ride();
+ride2.start();
+
+let ride3 = new Ride();
+ride3.start();
+ride3.start();
+
+console.log(Ride.activeRides);
