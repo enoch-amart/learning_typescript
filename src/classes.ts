@@ -132,7 +132,17 @@ class Student extends Person {
   }
 }
 
-let student = new Student(1, "Enoch", "Amart");
-console.log(student.fullName);
-student.walk();
-student.test();
+// let student = new Student(1, "Enoch", "Amart");
+// console.log(student.fullName);
+// student.walk();
+// student.test();
+
+// method overriding
+class Teacher extends Person {
+  override get fullName() {
+    return "Professor " + super.fullName;
+  }
+}
+
+let teacher = new Teacher("Enoch", "Amarteifio");
+console.log(teacher.fullName);
