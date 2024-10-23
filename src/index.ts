@@ -126,9 +126,23 @@
 
 // The unkown type - better than any cux the controller forces us to do some type check.
 //  the equal to sign "===" is use for primitive type, objects use "instaceof"
-function render(document: unknown) {
-  // Narrowing
-  if (document === "string") {
-    document.toUpperCase;
+// function render(document: unknown) {
+//   // Narrowing
+//   if (document === "string") {
+//     document.toUpperCase;
+//   }
+// }
+
+// The never type - values that never occur
+function reject(message: string): never {
+  throw new Error(message);
+}
+
+function processEvents(): never {
+  while (true) {
+    // read a message from a queue
   }
 }
+
+reject("...");
+console.log("Hello world");
