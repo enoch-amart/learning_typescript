@@ -3,23 +3,22 @@ class Account {
     constructor(id, owner, balance) {
         this.id = id;
         this.owner = owner;
-        this.balance = balance;
+        this._balance = balance;
+    }
+    getBalance() {
+        return this._balance;
     }
     deposit(amount) {
         if (amount <= 0)
             throw new Error("Invalid amount");
-        this.balance += amount;
+        this._balance += amount;
     }
     withdraw(amount) {
         if (amount <= 0)
             throw new Error("Invalid amount");
-        this.balance -= amount;
+        this._balance -= amount;
     }
 }
 let account = new Account(1, "Enoch", 0);
-account.deposit(100);
-console.log(account.balance);
-account.withdraw(50);
-console.log(account.balance);
-console.log(account instanceof Account);
+console.log(account.getBalance());
 //# sourceMappingURL=classes.js.map
