@@ -32,16 +32,26 @@
 // Objects
 
 //  Type Alias
-type Employee = {
-  readonly id: number;
-  name: string;
-  retire: (date: Date) => void;
-};
+// type Employee = {
+//   readonly id: number;
+//   name: string;
+//   retire: (date: Date) => void;
+// };
 
-let employee: Employee = {
-  id: 1,
-  name: "Enoch",
-  retire: (date: Date) => {
-    console.log(date);
-  },
-};
+// let employee: Employee = {
+//   id: 1,
+//   name: "Enoch",
+//   retire: (date: Date) => {
+//     console.log(date);
+//   },
+// };
+
+// Union type - giving a parameter more than one type. use vertical bar to create union type |
+function kgToLbs(weight: number | string): number {
+  // narrowing
+  if (typeof weight === "number") return weight * 2.2;
+  else return parseInt(weight) * 2.2;
+}
+
+kgToLbs(10);
+kgToLbs("10kg");
