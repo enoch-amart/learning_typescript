@@ -110,27 +110,27 @@
 // console.log(Ride.activeRides);
 
 // Inheritance - a mechanism that allows us to reuse our codes
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+// class Person {
+//   constructor(public firstName: string, public lastName: string) {}
 
-  get fullName() {
-    return this.firstName + " " + this.lastName;
-  }
+//   get fullName() {
+//     return this.firstName + " " + this.lastName;
+//   }
 
-  walk() {
-    console.log("Walking");
-  }
-}
+//   walk() {
+//     console.log("Walking");
+//   }
+// }
 
-class Student extends Person {
-  constructor(public studentId: number, firstName: string, lastName: string) {
-    super(firstName, lastName);
-  }
+// class Student extends Person {
+//   constructor(public studentId: number, firstName: string, lastName: string) {
+//     super(firstName, lastName);
+//   }
 
-  test() {
-    console.log("Taking test, wellll");
-  }
-}
+//   test() {
+//     console.log("Taking test, wellll");
+//   }
+// }
 
 // let student = new Student(1, "Enoch", "Amart");
 // console.log(student.fullName);
@@ -138,17 +138,17 @@ class Student extends Person {
 // student.test();
 
 // method overriding
-class Teacher extends Person {
-  override get fullName() {
-    return "Professor " + super.fullName;
-  }
-}
+// class Teacher extends Person {
+//   override get fullName() {
+//     return "Professor " + super.fullName;
+//   }
+// }
 
-class Principal extends Person {
-  override get fullName() {
-    return "Principal " + super.fullName;
-  }
-}
+// class Principal extends Person {
+//   override get fullName() {
+//     return "Principal " + super.fullName;
+//   }
+// }
 
 // let teacher = new Teacher("Enoch", "Amarteifio");
 // console.log(teacher.fullName);
@@ -156,12 +156,43 @@ class Principal extends Person {
 // Polymorphism -  poly - many; morph- forms; many forms. an object can take many different forms
 // Open Closed Principle - classes should be open for extension and closed for modification
 
-function printNames(people: Person[]) {
-  for (let person of people) console.log(person.fullName);
+// function printNames(people: Person[]) {
+//   for (let person of people) console.log(person.fullName);
+// }
+
+// printNames([
+//   new Student(1, "Abigail", "Yemoley"),
+//   new Teacher("Enoch", "Amarteifio"),
+//   new Principal("Nok", "Amart"),
+// ]);
+
+// Interfaces - only used when there's no method implementation. use for structure
+// shape of the class - use of interface. only have method declarations. the signature of our method
+// abstract class Calendar {
+//   constructor(public name: string) {}
+
+//   abstract addEvent(): void;
+//   abstract removeEven(): void;
+// }
+
+interface Calendar {
+  name: string;
+  addEvent(): void;
+  removeEvent(): void;
 }
 
-printNames([
-  new Student(1, "Abigail", "Yemoley"),
-  new Teacher("Enoch", "Amarteifio"),
-  new Principal("Nok", "Amart"),
-]);
+interface CloudCalendar extends Calendar {
+  sync(): void;
+}
+
+class GoogleCalendar implements Calendar {
+  constructor(public name: string) {}
+
+  addEvent(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  removeEvent(): void {
+    throw new Error("Method not implemented.");
+  }
+}
