@@ -87,22 +87,30 @@
 // greet(undefined);
 
 // optional chaining -- <?> optional property access operator
-type Customer = {
-  birthday?: Date;
-};
+// type Customer = {
+//   birthday?: Date;
+// };
 
-function getCustomer(id: number): Customer | null | undefined {
-  return id === 0 ? null : { birthday: new Date() };
-}
+// function getCustomer(id: number): Customer | null | undefined {
+//   return id === 0 ? null : { birthday: new Date() };
+// }
 
-let customer = getCustomer(1);
+// let customer = getCustomer(1);
 
-console.log(customer?.birthday?.getFullYear());
+// console.log(customer?.birthday?.getFullYear());
 
 // Optional element access operator
 // customers?.[0]
 
 // optional call operator
-let log: any = null;
+// let log: any = null;
 
-log?.("a");
+// log?.("a");
+
+// The Nullish Coalescing Operator
+
+let speed: number | null = null;
+let ride = {
+  // nullish coalescing operator
+  speed: speed ?? 30,
+};
