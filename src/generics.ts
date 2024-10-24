@@ -78,26 +78,26 @@
 // echo4(new Persons("hello"));
 
 // Extending generic classes
-interface Product {
-  name: string;
-  price: number;
-}
-class Store<T> {
-  protected _objects: T[] = [];
+// interface Product {
+//   name: string;
+//   price: number;
+// }
+// class Store<T> {
+//   protected _objects: T[] = [];
 
-  add(obj: T): void {
-    this._objects.push(obj);
-  }
+//   add(obj: T): void {
+//     this._objects.push(obj);
+//   }
 
-  find(property: keyof T, value: unknown): T | undefined {
-    return this._objects.find((obj) => obj[property] == value);
-  }
-}
+//   find(property: keyof T, value: unknown): T | undefined {
+//     return this._objects.find((obj) => obj[property] == value);
+//   }
+// }
 
-let store = new Store<Product>();
-store.add({ name: "Enoch", price: 100 });
-store.find("name", "Enoch");
-store.find("price", 100);
+// let store = new Store<Product>();
+// store.add({ name: "Enoch", price: 100 });
+// store.find("name", "Enoch");
+// store.find("price", 100);
 
 // // Pass on the generic type parameter
 // class CompressbileStore<T> extends Store<T> {
@@ -119,3 +119,33 @@ store.find("price", 100);
 //     return [];
 //   }
 // }
+
+// Type mapping
+interface Product {
+  name: string;
+  price: number;
+}
+
+type ReadOnlyProduct = {
+  readonly [K in keyof Product]: Product[K];
+};
+
+// to genralised it
+type ReadOnly<T> = {
+  readonly [K in keyof T]: T[K];
+};
+
+// to get optional
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+};
+
+// to get Nullable
+type Nullable<T> = {
+  [K in keyof T]: T[K] | null;
+};
+
+let product: ReadOnlyProduct = {
+  name: "a",
+  price: 4,
+};
