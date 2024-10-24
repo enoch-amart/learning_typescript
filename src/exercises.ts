@@ -113,3 +113,13 @@
 // }
 
 // keyof User returns a union of the properties of User. "userId" | "username"
+
+// Exercise - Decorators
+function Sauce(value: string) {
+  return (constructor: Function) => {
+    constructor.prototype.sauce = value;
+  };
+}
+
+@Sauce("pesto")
+class Pizza {}
