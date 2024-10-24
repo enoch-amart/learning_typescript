@@ -88,25 +88,34 @@ class Store<T> {
   add(obj: T): void {
     this._objects.push(obj);
   }
-}
 
-// Pass on the generic type paramete
-class CompressbileStore<T> extends Store<T> {
-  compress() {}
-}
-
-// let store = new CompressbileStore<Product>();
-
-// Restrict the generic type parameter
-class SearchableStore<T extends { name: string }> extends Store<T> {
-  find(name: string): T | undefined {
-    return this._objects.find((obj) => obj.name === name);
+  find(property: keyof T, value: unknown): T | undefined {
+    return this._objects.find((obj) => obj[property] == value);
   }
 }
 
-// Fixing or terminating the generic type parameter
-class ProductStore extends Store<Product> {
-  filterByCategory(category: string): Product[] {
-    return [];
-  }
-}
+let store = new Store<Product>();
+store.add({ name: "Enoch", price: 100 });
+store.find("name", "Enoch");
+store.find("price", 100);
+
+// // Pass on the generic type parameter
+// class CompressbileStore<T> extends Store<T> {
+//   compress() {}
+// }
+
+// // let store = new CompressbileStore<Product>();
+
+// // Restrict the generic type parameter
+// class SearchableStore<T extends { name: string }> extends Store<T> {
+//   find(name: string): T | undefined {
+//     return this._objects.find((obj) => obj.name === name);
+//   }
+// }
+
+// // Fixing or terminating the generic type parameter
+// class ProductStore extends Store<Product> {
+//   filterByCategory(category: string): Product[] {
+//     return [];
+//   }
+// }
