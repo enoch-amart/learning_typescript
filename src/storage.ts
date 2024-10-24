@@ -1,5 +1,5 @@
-export default class Store {}
+// export default class Store {}
 
-class Compressor {}
+// class Compressor {}
 
-class Encryptor {}
+// class Encryptor {}

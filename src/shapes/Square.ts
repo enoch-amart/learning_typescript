@@ -1,3 +1,3 @@
-export class Square {
-  constructor(public width: number) {}
-}
+// export class Square {
+//   constructor(public width: number) {}
+// }

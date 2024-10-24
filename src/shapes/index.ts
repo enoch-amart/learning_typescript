@@ -1,2 +1,2 @@
-export { Circle } from "./Circle";
-export { Square } from "./Square";
+// export { Circle } from "./Circle";
+// export { Square } from "./Square";
