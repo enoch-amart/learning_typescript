@@ -1,6 +1,10 @@
 // import { Circle } from "./shapes";
 
 // import Store from "./storage";
-import * as Shapes from "./shapes";
 
-Shapes.Circle;
+// wildcard import
+// import * as Shapes from "./shapes";
+
+// Shapes.Circle;
+
+import { Circle, Square } from "./shapes";
