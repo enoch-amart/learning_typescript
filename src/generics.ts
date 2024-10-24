@@ -121,31 +121,31 @@
 // }
 
 // Type mapping
-interface Product {
-  name: string;
-  price: number;
-}
+// interface Product {
+//   name: string;
+//   price: number;
+// }
 
-type ReadOnlyProduct = {
-  readonly [K in keyof Product]: Product[K];
-};
+// type ReadOnlyProduct = {
+//   readonly [K in keyof Product]: Product[K];
+// };
 
-// to genralised it
-type ReadOnly<T> = {
-  readonly [K in keyof T]: T[K];
-};
+// // to genralised it
+// type ReadOnly<T> = {
+//   readonly [K in keyof T]: T[K];
+// };
 
-// to get optional
-type Optional<T> = {
-  [K in keyof T]?: T[K];
-};
+// // to get optional
+// type Optional<T> = {
+//   [K in keyof T]?: T[K];
+// };
 
-// to get Nullable
-type Nullable<T> = {
-  [K in keyof T]: T[K] | null;
-};
+// // to get Nullable
+// type Nullable<T> = {
+//   [K in keyof T]: T[K] | null;
+// };
 
-let product: ReadOnlyProduct = {
-  name: "a",
-  price: 4,
-};
+// let product: ReadOnlyProduct = {
+//   name: "a",
+//   price: 4,
+// };
