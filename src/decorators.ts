@@ -1,26 +1,56 @@
-// parameterized decorators
-type ComponentOptions = {
-  selector: string;
-};
+// // parameterized decorators
+// type ComponentOptions = {
+//   selector: string;
+// };
 
-// decorator Factory
-function Component(value: ComponentOptions) {
-  return (constructor: Function) => {
-    console.log("Component decorator called");
-    constructor.prototype.options = value;
-    constructor.prototype.uniqueId = Date.now();
-    constructor.prototype.insertInDOM = () => {
-      console.log("Inserting the component in the DOM");
-    };
+// // decorator Factory
+// function Component(value: ComponentOptions) {
+//   return (constructor: Function) => {
+//     console.log("Component decorator called");
+//     constructor.prototype.options = value;
+//     constructor.prototype.uniqueId = Date.now();
+//     constructor.prototype.insertInDOM = () => {
+//       console.log("Inserting the component in the DOM");
+//     };
+//   };
+// }
+
+// function Pipe(constructor: Function) {
+//   console.log("Pipe decorator called");
+//   constructor.prototype.pipe = true;
+// }
+
+// //Decorator Composition
+// @Component({ selector: "#my-profile" })
+// @Pipe
+// class ProfileComponent {}
+
+// Method Decorations
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.value as Function;
+  descriptor.value = function (message: string) {
+    console.log("Before");
+    original.call(this, message);
+    console.log("After");
   };
 }
 
-function Pipe(constructor: Function) {
-  console.log("Pipe decorator called");
-  constructor.prototype.pipe = true;
+// making it more generic.
+function Log1(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.value as Function;
+  descriptor.value = function (...args: any) {
+    console.log("Before");
+    original.call(this, ...args);
+    console.log("After");
+  };
 }
 
-//Decorator Composition
-@Component({ selector: "#my-profile" })
-@Pipe
-class ProfileComponent {}
+class Person {
+  @Log
+  say(message: string) {
+    console.log("Person says " + message);
+  }
+}
+
+let person = new Person();
+person.say("Hello world");
