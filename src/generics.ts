@@ -43,36 +43,70 @@
 // result1.data?.title;
 
 // Generic constraints
-interface Person {
+// interface Person {
+//   name: string;
+// }
+
+// class Persons {
+//   constructor(public name: string) {}
+// }
+
+// class customer extends Persons {}
+
+// // type contraint
+// function echo<T extends string | number>(value: T): T {
+//   return value;
+// }
+// echo("hello");
+
+// // Shape object contraint
+// function echo2<T extends { name: string }>(value: T): T {
+//   return value;
+// }
+// echo2({ name: "enoch" });
+
+// // interface contraint
+// function echo3<T extends Person>(value: T): T {
+//   return value;
+// }
+
+// // class contraint
+// function echo4<T extends Person>(value: T): T {
+//   return value;
+// }
+// echo4(new customer("a"));
+// echo4(new Persons("hello"));
+
+// Extending generic classes
+interface Product {
   name: string;
+  price: number;
+}
+class Store<T> {
+  protected _objects: T[] = [];
+
+  add(obj: T): void {
+    this._objects.push(obj);
+  }
 }
 
-class Persons {
-  constructor(public name: string) {}
+// Pass on the generic type paramete
+class CompressbileStore<T> extends Store<T> {
+  compress() {}
 }
 
-class customer extends Persons {}
+// let store = new CompressbileStore<Product>();
 
-// type contraint
-function echo<T extends string | number>(value: T): T {
-  return value;
-}
-echo("hello");
-
-// Shape object contraint
-function echo2<T extends { name: string }>(value: T): T {
-  return value;
-}
-echo2({ name: "enoch" });
-
-// interface contraint
-function echo3<T extends Person>(value: T): T {
-  return value;
+// Restrict the generic type parameter
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  find(name: string): T | undefined {
+    return this._objects.find((obj) => obj.name === name);
+  }
 }
 
-// class contraint
-function echo4<T extends Person>(value: T): T {
-  return value;
+// Fixing or terminating the generic type parameter
+class ProductStore extends Store<Product> {
+  filterByCategory(category: string): Product[] {
+    return [];
+  }
 }
-echo4(new customer("a"));
-echo4(new Persons("hello"));
