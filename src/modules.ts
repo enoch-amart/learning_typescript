@@ -1,1 +1,3 @@
-import { Circle } from "./shapes";
+// import { Circle } from "./shapes";
+
+import Store from "./storage";
