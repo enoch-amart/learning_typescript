@@ -88,3 +88,28 @@
 //   salary: number;
 //   address: Address;
 // }
+
+// Exercise - Generic
+// Exercise 1
+
+function echo<T>(arg: T): T {
+  return arg;
+}
+
+// Exercise 2
+function printName<T extends { name: string }>(obj: T) {
+  console.log(obj.name);
+}
+
+// Exercise 3
+class Entity<T> {
+  constructor(public ID: T) {}
+}
+
+// Exercise 4
+interface User {
+  UserID: number;
+  username: string;
+}
+
+// keyof User returns a union of the properties of User. "userId" | "username"
