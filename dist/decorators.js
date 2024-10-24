@@ -29,6 +29,6 @@ class User {
 __decorate([
     MinLength(4)
 ], User.prototype, "password", void 0);
-let user = new User("122");
+let user = new User("1224");
 console.log(user.password);
 //# sourceMappingURL=decorators.js.map
