@@ -115,22 +115,22 @@
 // console.log(user.password);
 
 // Parameter Decorators
-type WatchedParameter = {
-  methodName: string;
-  parameterIndex: number;
-};
+// type WatchedParameter = {
+//   methodName: string;
+//   parameterIndex: number;
+// };
 
-const watchedParameter: WatchedParameter[] = [];
+// const watchedParameter: WatchedParameter[] = [];
 
-function Watch(target: any, methodName: string, parameterIndex: number) {
-  watchedParameter.push({
-    methodName,
-    parameterIndex,
-  });
-}
+// function Watch(target: any, methodName: string, parameterIndex: number) {
+//   watchedParameter.push({
+//     methodName,
+//     parameterIndex,
+//   });
+// }
 
-class Vehicle {
-  move(@Watch speed: number) {}
-}
+// class Vehicle {
+//   move(@Watch speed: number) {}
+// }
 
-console.log(watchedParameter);
+// console.log(watchedParameter);
